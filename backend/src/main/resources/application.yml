@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: stock-visualizer
+  
+  # 缓存配置
+  cache:
+    type: caffeine
+    cache-names:
+      - quotes
+      - history
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=60s
+
+# Finnhub API 配置
+finnhub:
+  api:
+    key: ${FINNHUB_API_KEY:your_api_key_here}
+    base-url: https://finnhub.io/api/v1
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.stockviz: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# 管理端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
