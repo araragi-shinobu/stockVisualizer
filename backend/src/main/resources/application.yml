@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
   servlet:
     context-path: /
 
@@ -19,7 +19,7 @@ spring:
 # Finnhub API 配置
 finnhub:
   api:
-    key: ${FINNHUB_API_KEY:your_api_key_here}
+    key: ${FINNHUB_API_KEY:d407981r01qkrgfbn660d407981r01qkrgfbn66g}
     base-url: https://finnhub.io/api/v1
 
 # 日志配置
